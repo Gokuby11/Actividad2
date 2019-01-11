@@ -63,7 +63,14 @@
         $sql ="UPDATE user SET username='".$user->getUsername()."', name='".$user->getName()."', surnames='".$user->getSurnames()."', email='".$user->getEmail()."' WHERE id=".$user->getId();
     $conn = $GLOBALS['conn'];
     return $conn->query($sql) ;
+    
+    }
 
+    function save_user (User $user){
+        $sql = "INSERT INTO user (username, password, name, surnames, email)
+            VALUES ('".$user->getUsername()."', '".$user->getPassword()."', '".$user->getName()."', '".$user->getSurnames()."', '".$user->getEmail()."')";
+    $conn = $GLOBALS['conn'];
+    return $conn->query($sql) ;
 
     }
 
@@ -74,13 +81,7 @@
 
     }
 
-    function save_user (User $user){
-        $sql = "INSERT INTO user (username, password, name, surnames, email)
-            VALUES ('".$user->getUsername()."', '".$user->getPassword()."', '".$user->getName()."', '".$user->getSurnames()."', '".$user->getEmail()."')";
-    $conn = $GLOBALS['conn'];
-    return $conn->query($sql) ;
-
-    }
+   
 
 
 
